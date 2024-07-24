@@ -1,0 +1,82 @@
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Make the body take the full height of the viewport */
+    margin: 0;
+    background-image: url('bcground.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+    text-align: center;
+    /* Remove background-color to coincide with the body background */
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.header {
+    /* Remove background-color to coincide with the body background */
+    /* background-color: #f8f8f8; */
+    padding: 50px 0;
+}
+
+h1 {
+    font-size: 2.7rem;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+}
+
+.reservation-form input,
+.reservation-form textarea {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    margin: 0 auto 15px auto; /* Center the input and textarea */
+    border: 2px solid #ccc; /* Light gray border */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for border and shadow */
+}
+
+.reservation-form input:focus,
+.reservation-form textarea:focus {
+    border-color: #ff4500; /* Orange border on focus */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow on focus */
+}
+
+.reservation-form button {
+    display: block;
+    width: auto; /* Change width to auto to reduce length */
+    padding: 10px 20px;
+    margin: 0 auto 15px auto; /* Center the button */
+    border: 2px solid #ff4500; /* Orange border */
+    border-radius: 5px;
+    background-color: #ff4500;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for background color and shadow */
+}
+
+.reservation-form button:hover {
+    background-color: #e63900;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}

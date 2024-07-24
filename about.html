@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>हाम्रो ठेगाना</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center; /* Center align the contents */
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .business-info, .staff-info {
+            margin-bottom: 30px;
+        }
+        .business-info h2, .staff-info h2 {
+            text-align: center;
+        }
+        .business-info p, .staff-info p {
+            margin: 10px 0;
+        }
+        .staff-members {
+            display: flex;
+            justify-content: center; /* Center the items horizontally */
+            gap: 20px; /* Space between each staff member */
+            flex-wrap: wrap; /* Allow wrapping if necessary */
+        }
+        .staff-member {
+            text-align: center;
+            width: 200px; /* Adjust the width as needed */
+        }
+        .staff-member img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%; /* Makes the image round */
+            border: 2px solid #ccc; /* Optional: Add a border */
+        }
+        .staff-member p {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>हाम्रो ठेगाना</h1>
+        <div class="business-info">
+            <h2>व्यापार</h2>
+            <p><strong>व्यापार नाम :</strong> हामी किसान</p>
+            <p><strong>मुख्य साखाको स्थान :</strong> तल्लो बेसि, धादिङ</p>
+            <p><strong>टेलिफोन / फ्याक्स :</strong> ०१०५२०२२२ / ९८८९९८८९९८</p>
+            <p><strong>इमेल:</strong> insidefarm@hamikisan.com</p>
+        </div>
+        <div class="staff-info">
+            <h2>हाम्रो टिम</h2>
+            <div class="staff-members">
+                <div class="staff-member">
+                    <img src="me.jpg" alt="Staff 1">
+                    <p><strong>नाम:</strong> सतिस पोखरेल</p>
+                </div>
+                <div class="staff-member">
+                    <img src="sush.jpg" alt="Staff 2">
+                    <p><strong>नाम:</strong> सुशान्त गौतम</p>
+                </div>
+                <div class="staff-member">
+                    <img src="giri.jpg" alt="Staff 3">
+                    <p><strong>नाम:</strong> निरज गिरि</p>
+                </div>
+                <div class="staff-member">
+                    <img src="bikku.jpg" alt="Staff 4">
+                    <p><strong>नाम:</strong> बिकाश दाहाल</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

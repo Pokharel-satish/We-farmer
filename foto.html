@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Collection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: #f9f9f9;
+        }
+        .product {
+            width: calc(20% - 20px);
+            margin-bottom: 20px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            background-color: #fff;
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .description, .price, .status, .quantity, .add-to-cart {
+            margin-top: 10px;
+        }
+        .out-of-stock {
+            color: red;
+        }
+        .quantity select {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .add-to-cart {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .add-to-cart:hover {
+            background-color: #45a049;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .checkout-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .checkout-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="product">
+        <img src="karela.jpeg" alt="Karela">
+        <div class="description">मकवानपुरको करेला</div>
+        <div class="price">मूल्य: रु 11.5/kg</div>
+        <div class="quantity">
+            मात्रा:
+            <select>
+                <option value="1kg">1 kg</option>
+                <option value="2kg">2 kg</option>
+                <option value="5kg">5 kg</option>
+            </select>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Karela', '1kg')">Add to Cart</button>
+    </div>
+    <!-- Repeat similar product divs with appropriate data -->
+    <div class="product">
+        <img src="mango.jpeg" alt="Mango">
+        <div class="description">नेपालगन्जको आँप</div>
+        <div class="price">मूल्य: रु 13/kg</div>
+        <div class="quantity">
+            मात्रा:
+            <select>
+                <option value="1kg">1 kg</option>
+                <option value="2kg">2 kg</option>
+                <option value="5kg">5 kg</option>
+            </select>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Mango', '1kg')">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="apple.jpeg" alt="Apple">
+        <div class="description">जुम्लाको स्याउ</div>
+        <div class="price">मूल्य: रु 12.5/kg</div>
+        <div class="quantity">
+            मात्रा:
+            <select>
+                <option value="1kg">1 kg</option>
+                <option value="2kg">2 kg</option>
+                <option value="5kg">5 kg</option>
+            </select>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Apple', '1kg')">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="Images/adhuwa.jpeg" alt="Ginger">
+        <div class="description">सिन्धुलीको अदुवा</div>
+        <div class="price">मूल्य: रु 12/kg</div>
+        <div class="quantity">
+            मात्रा:
+            <select>
+                <option value="1kg">1 kg</option>
+                <option value="2kg">2 kg</option>
+                <option value="5kg">5 kg</option>
+            </select>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Ginger', '1kg')">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="lapsi.jpeg" alt="Lapsi">
+        <div class="description">धादिङको लप्सी</div>
+        <div class="price">मूल्य: रु 11.8/kg</div>
+        <div class="quantity">
+            मात्रा:
+            <select>
+                <option value="1kg">1 kg</option>
+                <option value="2kg">2 kg</option>
+                <option value="5kg">5 kg</option>
+            </select>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Lapsi', '1kg')">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="onion.jpeg" alt="Onion">
+        <div class="description">झापाको प्याज</div>
+        <div class="price">मूल्य: रु 11.2/kg</div>
+        <div class="quantity">
+            मात्रा:
+            <select>
+                <option value="1kg">1 kg</option>
+                <option value="2kg">2 kg</option>
+                <option value="5kg">5 kg</option>
+            </select>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Onion', '1kg')">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="orange.jpeg" alt="Orange">
+        <div class="description">स्याङ्जाको सुन्तला</div>
+        <div class="price">मूल्य: रु 12.2/kg</div>
+        <div class="quantity">
+            मात्रा:
+            <select>
+                <option value="1kg">1 kg</option>
+                <option value="2kg">2 kg</option>
+                <option value="5kg">5 kg</option>
+            </select>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Orange', '1kg')">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="potato.jpeg" alt="Potato">
+        <div class="description">मुस्ताङको आलु</div>
+        <div class="price">मूल्य: रु 10.8/kg</div>
+        <div class="quantity">
+            मात्रा:
+            <select>
+                <option value="1kg">1 kg</option>
+                <option value="2kg">2 kg</option>
+                <option value="5kg">5 kg</option>
+            </select>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Potato', '1kg')">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="carrot.jpeg" alt="Carrot">
+        <div class="description">चितवनको गाजर</div>
+        <div class="price">मूल्य: रु 10.5/kg</div>
+        <div class="quantity">
+            मात्रा:
+            <select>
+                <option value="1kg">1 kg</option>
+                <option value="2kg">2 kg</option>
+                <option value="5kg">5 kg</option>
+            </select>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('Carrot', '1kg')">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="lemon.jpeg" alt="lemon">
+        <div class="description">........</div>
+        <div class="price">मूल्य: रु 15.5/kg</div>
+        <div class="quantity">
+            मात्रा:
+            <select>
+                <option value="1kg">1 kg</option>
+                <option value="2kg">2 kg</option>
+                <option value="5kg">5 kg</option>
+            </select>
+        </div>
+        <button class="add-to-cart" onclick="addToCart('......', '1kg')">Add to Cart</button>
+    </div>
+    <div class="product out-of-stock">
+        <img src="sugarcane.jpeg" alt="sugarcane">
+        <div class="description">.........</div>
+        <div class="price">मूल्य: रु 20/kg</div>
+        <div class="quantity">
+            मात्रा:
+            <select disabled>
+                <option value="1kg">1 kg</option>
+                <option value="2kg">2 kg</option>
+                <option value="5kg">5 kg</option>
+            </select>
+        </div>
+        <button class="add-to-cart" disabled>Out of Stock</button>
+    </div>
+    <div class="product out-of-stock">
+        <img src="guava.jpeg" alt="Guava">
+        <div class="description">चितवनको पिपल</div>
+        <div class="price">मूल्य: रु 12/kg</div>
+        <div class="quantity">
+            मात्रा:
+            <select disabled>
+                <option value="1kg">1 kg</option>
+                <option value="2kg">2 kg</option>
+                <option value="5kg">5 kg</option>
+            </select>
+        </div>
+        <button class="add-to-cart" disabled>Out of Stock</button>
+    </div>
+    <!-- The Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Your Cart</h2>
+            <p id="cartContent">Cart मा जोडिएको सामान यहाँ देखाउछ|</p>
+            <button class="checkout-button" onclick="proceedToCheckout()">अगाडि बढ्नुहोस् चेकआउटको लागि</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = []; // Initialize an empty cart
+
+        function addToCart(item, quantity) {
+            // Add a new item to the cart
+            cart.push({ item, quantity });
+
+            // Show the cart modal if cart has items
+            if (cart.length > 0) {
+                showCart();
+            }
+        }
+
+        function showCart() {
+            document.getElementById("cartModal").style.display = "block";
+            updateCartContent(); // Update cart content
+        }
+
+        function closeCart() {
+            document.getElementById("cartModal").style.display = "none";
+        }
+
+        function proceedToCheckout() {
+            window.location.href = "checkout.html";
+        }
+
+        function updateCartContent() {
+            const cartContent = document.getElementById("cartContent");
+            if (cart.length === 0) {
+                cartContent.innerHTML = "Cart is empty.";
+            } else {
+                cartContent.innerHTML = "Cart मा जोडिएको सामान:<br>" +
+                cart.map(item => `<div>${item.item} (Quantity: ${item.quantity})</div>`).join("");
+            }
+        }
+
+        // Function to read URL parameters
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+            let results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        // Function to filter products based on search query
+        function filterProducts() {
+            let searchQuery = getParameterByName('query');
+            if (searchQuery) {
+                searchQuery = searchQuery.toLowerCase();
+                let products = document.querySelectorAll('.product');
+                products.forEach(product => {
+                    let description = product.querySelector('.description').innerText.toLowerCase();
+                    if (description.includes(searchQuery)) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        // Call the filterProducts function when the page loads
+        window.onload = filterProducts;
+    </script>
+</body>
+</html>

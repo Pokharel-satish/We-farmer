@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation</title>
+    <link rel="stylesheet" href="reservation.css">
+</head>
+<body>
+    <header class="header reservation-header">
+        <div class="container">
+            <h1>उत्पादन आरक्षण</h1>
+            <p class="description">नेपाली तरकारी र फलफूलको उत्कृष्ट चयनको मजा लिनको लागि अहिले नै आफ्नो स्थान बुक गर्नुहोस्!</p>
+            <form id="reservationForm" action="ReservationServlet.java" method="post" class="reservation-form">
+                <input type="text" id="name" name="name" placeholder="तपाईंको नाम" required>
+                <input type="email" id="email" name="email" placeholder="तपाईंको इमेल" required>
+                <input type="tel" id="phone" name="phone" placeholder="तपाईंको फोन न." required>
+                <input type="date" id="date" name="date" placeholder="मिति" required>
+                <textarea id="message" name="message" placeholder="अन्य सन्देश"></textarea>
+                <button type="submit" id="submitButton">आरक्षण बुजाउनुहोस</button>
+            </form>
+            <p id="reservationStatus" class="status"></p>
+        </div>
+    </header>
+
+    <script>
+       document.getElementById("reservationForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    // Get form values
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+    var date = document.getElementById("date").value;
+    var message = document.getElementById("message").value;
+
+    // Send form data to servlet using AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "ReservationServlet", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Display submission status
+            document.getElementById("reservationStatus").textContent = xhr.responseText;
+            // Clear form fields
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("phone").value = "";
+            document.getElementById("date").value = "";
+            document.getElementById("message").value = "";
+        }
+    };
+    // Prepare data to send
+    var formData = "name=" + encodeURIComponent(name) +
+                   "&email=" + encodeURIComponent(email) +
+                   "&phone=" + encodeURIComponent(phone) +
+                   "&date=" + encodeURIComponent(date) +
+                   "&message=" + encodeURIComponent(message);
+    // Send request
+    xhr.send(formData);
+});
+
+    </script>
+    
+</body>
+</html>

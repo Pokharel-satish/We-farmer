@@ -1,0 +1,80 @@
+/* Reset default margin, padding, and box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  line-height: 1.6;
+  background-image: url("missionbg.jpeg");
+  background-size: cover; /* Ensure background image covers the entire body */
+}
+
+/* Container styles */
+.container {
+  max-width: 800px;
+  margin: 20px auto; /* Added margin for better spacing */
+  padding: 20px;
+  background-color: #ffffff; /* Solid white background */
+  border-radius: 8px; /* Rounded corners for container */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Header styles */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #333; /* Maintain readable contrast */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Text shadow for emphasis */
+}
+
+.header p {
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Blocks for sections */
+.block {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f0f0f0; /* Light gray background for sections */
+  border-radius: 5px;
+}
+
+/* Mission styles */
+.mission {
+  font-weight: bold;
+  color: #009688;
+  margin-bottom: 10px;
+}
+
+/* Description styles */
+.description {
+  color: #444; /* Darker text color for descriptions */
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .header h1 {
+    font-size: 2em;
+  }
+
+  .header p {
+    font-size: 1em;
+  }
+}
